@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
@@ -11,14 +11,10 @@ export class HeaderComponent implements OnInit {
   constructor(private heroeSrv:HeroesService) { }
  
   ngOnInit() {
-  
+    // this.buscarHeroe(null);
   }
-  
 
   buscarHeroe(dataToFind: string ) {
-    console.log(dataToFind);
-    let heroesFound: number[]
-    heroesFound = this.heroeSrv.buscarHeroe(dataToFind);
-    console.log(heroesFound);    
+    this.heroeSrv.buscarHeroe(dataToFind);
   }
 }
